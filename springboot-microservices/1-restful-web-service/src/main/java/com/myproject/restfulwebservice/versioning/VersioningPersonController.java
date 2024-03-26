@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VersioningPersonController {
 
-    // URI VERSIONING
+    // URI POLLUTION - TWITTER
 
     @GetMapping("/v1/person")
     public PersonV1 getFirstVersionOfPerson() {
@@ -18,7 +18,7 @@ public class VersioningPersonController {
         return new PersonV2(new Name("Bob", "Charlie"));
     }
 
-    // REQUEST PARAMETER VERSIONING
+    // REQUEST PARAMETER VERSIONING - AMAZON
 
     @GetMapping(path = "/person", params = "version=1")
     public PersonV1 getFirstVersionOfPersonRequestParameter() {
@@ -30,7 +30,7 @@ public class VersioningPersonController {
         return new PersonV2(new Name("Bob", "Charlie"));
     }
 
-    // CUSTOM HEADERS VERSIONING (REQUEST HEADER)
+    // CUSTOM HEADERS VERSIONING (REQUEST HEADER) - MICROSOFT
 
     @GetMapping(path = "/person/header", headers = "X-API-VERSION=1")
     public PersonV1 getFirstVersionOfPersonRequestHeader() {
@@ -42,7 +42,7 @@ public class VersioningPersonController {
         return new PersonV2(new Name("Bob", "Charlie"));
     }
 
-    // MEDIA TYPE VERSIONING (ACCEPT HEADER)
+    // MEDIA TYPE VERSIONING (ACCEPT HEADER) - GITHUB
 
     @GetMapping(path = "/person/accept", produces = "application/vnd.company.app-v1+json")
     public PersonV1 getFirstVersionOfPersonAcceptHeader() {
